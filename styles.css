@@ -1,0 +1,82 @@
+* {
+	background-color: wheat;
+}
+
+.fullpage {
+    max-width: 414px;
+}
+.row {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.inputBox{
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 100%;
+	flex: 1;
+    padding-right: 20px;
+}
+.column:last-child{
+    padding-right: 0;
+}
+
+/* instead of padding on all columns, make a new class called button padding and fuckzorz iwth that.
+add button addding class to all of those columns */
+
+.tripleColumn {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 100%;
+	flex: 3;
+    padding-right: 20px;
+}
+
+.doubleColumn {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 100%;
+	flex: 2;
+    padding-right: 20px;
+}
+
+/* sets display of all buttons
+.displayBox {
+    max-width: 414px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.buttonClear {
+    flex: 3;
+    width: 100%;
+    border: 1px solid black;
+    text-align: center;
+    vertical-align: center;
+}
+
+.buttonZero {
+    flex: 2;
+    border: 1px solid black;
+    text-align: center;
+    vertical-align: center
+} */
+
+/* sets display of the uniform buttons */
+/* .button {
+    display: inline-block;
+    flex: 0;
+    height: 64px;
+    min-width:calc(414px / 4);
+    padding: 16px;
+    border: 1px solid black;
+    text-align: center;
+    align-items: center;
+} */

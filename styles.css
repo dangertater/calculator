@@ -1,20 +1,23 @@
 * {
 	background-color: wheat;
+	border-radius: 3em;
 }
 
 .fullpage {
-    max-width: 414px;
+	max-width: 414px;
+	margin: 5px;
 }
 .row {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	width: 100%;
+	margin-top: 5px;
 }
 
-.inputBox{
-    box-sizing: border-box;
-    width: 100%;
+.inputBox {
+	box-sizing: border-box;
+	width: 100%;
 }
 
 .column {
@@ -22,13 +25,13 @@
 	flex-direction: column;
 	flex-basis: 100%;
 	flex: 1;
-    padding-right: 20px;
-}
-.column:last-child{
-    padding-right: 0;
 }
 
-/* instead of padding on all columns, make a new class called button padding and fuckzorz iwth that.
+.column:last-child {
+	padding-right: 0;
+}
+
+/* instead of padding on all columns, make a new class called button padding and fuckzorz with that.
 add button addding class to all of those columns */
 
 .tripleColumn {
@@ -36,7 +39,6 @@ add button addding class to all of those columns */
 	flex-direction: column;
 	flex-basis: 100%;
 	flex: 3;
-    padding-right: 20px;
 }
 
 .doubleColumn {
@@ -44,9 +46,70 @@ add button addding class to all of those columns */
 	flex-direction: column;
 	flex-basis: 100%;
 	flex: 2;
-    padding-right: 20px;
 }
 
+.buttonDivide {
+	margin-left: 5px;
+}
+.buttonMultiply {
+	margin-left: 5px;
+}
+.buttonAdd {
+	margin-left: 5px;
+}
+.buttonSubtract {
+	margin-left: 5px;
+}
+.buttonEquals {
+	margin-left: 5px;
+}
+.buttonDot {
+	margin-left: 5px;
+}
+.buttonClear {
+	margin-left: 5px;
+}
+.button0 {
+	margin-left: 5px;
+}
+.button1 {
+	margin-left: 5px;
+}
+.button2 {
+	margin-left: 5px;
+}
+.button3 {
+	margin-left: 5px;
+}
+.button4 {
+	margin-left: 5px;
+}
+.button5 {
+	margin-left: 5px;
+}
+.button6 {
+	margin-left: 5px;
+}
+.button7 {
+	margin-left: 5px;
+}
+.button8 {
+	margin-left: 5px;
+}
+.button9 {
+	margin-left: 5px;
+}
+
+/* .row1{
+
+}
+
+.row2 .row3 .row4 {
+margin-left: 5px;}
+
+.row5 {
+
+} */
 /* sets display of all buttons
 .displayBox {
     max-width: 414px;

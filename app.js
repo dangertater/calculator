@@ -1,1 +1,3 @@
-console.log("heckin commment")
+document.getElementsByClassName("inputBox")
+
+let episodes = document.querySelectorAll(".vevent")

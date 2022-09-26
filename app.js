@@ -6,7 +6,7 @@ const button3 = document.getElementById("button3")
 const button4 = document.getElementById("button4")
 const button5 = document.getElementById("button5")
 const button6 = document.getElementById("button6")
-const button7 = document.getElementById("button7 ")
+const button7 = document.getElementById("button7")
 const button8 = document.getElementById("button8")
 const button9 = document.getElementById("button9")
 const button0 = document.getElementById("button0")
@@ -16,27 +16,22 @@ const buttonDot = document.getElementById("buttonDot")
 const buttonDivide = document.getElementById("buttonDivide")
 const buttonMultiply = document.getElementById("buttonMultiply")
 const buttonEquals = document.getElementById("buttonEquals")
-console.log(input)
 
 //premade method below, some dude decdied that the string 'change' is going to determine when the callback, '(e)' in this case, should be called
 input.addEventListener("change", (e) => {
 	console.log("change", e)
 })
-
 input.addEventListener("keydown", (e) => {
 	console.log("keyDownEvent", e.key, input.value)
 })
-
 clearButton.addEventListener("click", (e) => {
 	input.value = ""
 	input.focus()
 	console.log("clear")
 })
-
 button0.addEventListener("click", (e) => {
 	input.value = input.value + "0"
 })
-
 button1.addEventListener("click", (e) => {
 	input.value = input.value + "1"
 	console.log("click button1")
@@ -99,14 +94,7 @@ buttonDot.addEventListener("click", (e) => {
 	console.log("button . clicked")
 })
 
-// --------------------call back review below ignore me---------
-// let green = false
-// setInterval(() => {
-// 	if (!green) {
-// 		green = true
-// 		input.style.border = "1px solid green"
-// 	} else {
-// 		green = false
-// 		input.style.border = "1px solid red"
-// 	}
-// }, 1000)
+buttonEquals.addEventListener("click", (e) => {
+	input.value = eval(input.value)
+	console.log("button = clicked")
+})

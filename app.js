@@ -25,7 +25,6 @@ buttons.forEach((b) => {
 	let id = "button" + b
 	let button = document.getElementById(id)
 	button.addEventListener("click", (e) => {
-		//in line below, sub in each indy element from buttons
 		input.value = input.value + button.innerText
 	})
 })

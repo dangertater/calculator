@@ -48,6 +48,10 @@ add button addding class to all of those columns */
 	flex: 2;
 }
 
+.buttonAll{
+	margin-left: 5px;
+}
+/* 
 .buttonDivide {
 	margin-left: 5px;
 }
@@ -98,7 +102,7 @@ add button addding class to all of those columns */
 }
 .button9 {
 	margin-left: 5px;
-}
+} */
 
 /* .row1{
 

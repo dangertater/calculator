@@ -17,13 +17,32 @@ const buttonDivide = document.getElementById("buttonDivide")
 const buttonMultiply = document.getElementById("buttonMultiply")
 const buttonEquals = document.getElementById("buttonEquals")
 
-//premade method below, some dude decdied that the string 'change' is going to determine when the callback, '(e)' in this case, should be called
-input.addEventListener("change", (e) => {
-	console.log("change", e)
+let buttons = [
+	"1",
+	"2",
+	"3",
+	"4",
+	"5",
+	"6",
+	"7",
+	"8",
+	"9",
+	"0",
+	"Add",
+	"Subtract",
+	"Dot",
+	"Divide",
+	"Multiply",
+	"Equals",
+]
+buttons.forEach((b) => {
+	console.log("console logging b", b)
+	let id = "button" + b
+	console.log(id)
+	let button = document.getElementById(id)
+	console.log(button)
 })
-input.addEventListener("keydown", (e) => {
-	console.log("keyDownEvent", e.key, input.value)
-})
+
 clearButton.addEventListener("click", (e) => {
 	input.value = ""
 	input.focus()

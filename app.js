@@ -35,3 +35,5 @@ buttonEquals.addEventListener("click", (e) => {
 console.log("numbers", numbers)
 console.log("actions", actions)
 console.log("buttons", buttons)
+
+//asdfasdfadsf

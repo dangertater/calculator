@@ -8,3 +8,5 @@
 //----bonus, figure out how to have it delete the last element if the last element is an 'action' (will make code non functional)
 
 //both clear and equals will need their own event code for when user clicks
+
+//test

@@ -13,9 +13,11 @@ let buttons = [...numbers, ...actions]
 buttons.forEach((bName) => {
 	let id = "button" + bName
 	let button = document.getElementById(id)
+	//when debugged the below line has button === 'b
 	button.addEventListener("click", (e) => {
 		if (actions.includes(bName)) {
-			if (numbers.includes(input.value[input.value.length - 1])) {
+			let lastValue = input.value[input.value.lenght - 1]
+			if (numbers.includes(input.value[lastValue])) {
 				input.value = input.value + button.innerText
 			}
 		} else {

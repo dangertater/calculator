@@ -4,7 +4,7 @@ const buttonClear = document.getElementById("buttonClear")
 const buttonEquals = document.getElementById("buttonEquals")
 //will need arrays for actions, numbers, and both combined into another array 'buttons'
 let numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
-let actions = ["Add", "Subtract", "Multiply", "Divide", "dot"]
+let actions = ["Add", "Subtract", "Multiply", "Divide", "Dot"]
 let buttons = [...numbers, ...actions]
 //will need a function that will cycle through (.forEach) each element in array 'buttons',
 //----then will do an '.addEventListener' comparing if actions array includes each cycled element, then comparing if numbers

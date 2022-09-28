@@ -46,4 +46,15 @@ QUnit.module("calculate", function () {
 			action: "+",
 		})
 	})
+	QUnit.test("3", function (assert) {
+		assert.deepEqual(calculate("3"), "3")
+	})
+})
+QUnit.module("hasOperators", function () {
+	QUnit.test("3", function (assert) {
+		assert.false(hasOpertors("3"))
+	})
+	QUnit.test("3+5", function (assert) {
+		assert.true(hasOpertors("3+5"))
+	})
 })

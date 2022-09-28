@@ -1,5 +1,5 @@
 const input = document.getElementById("input")
-const clearButton = document.getElementById("clearButton")
+const buttonClear = document.getElementById("buttonClear")
 const buttonEquals = document.getElementById("buttonEquals")
 let numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 let actions = ["Add", "Subtract", "Dot", "Divide", "Multiply"]
@@ -19,7 +19,7 @@ buttons.forEach((b) => {
 	})
 })
 
-clearButton.addEventListener("click", (e) => {
+buttonClear.addEventListener("click", (e) => {
 	input.value = ""
 	input.focus()
 	console.log("clear")

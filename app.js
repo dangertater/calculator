@@ -14,17 +14,17 @@ let buttons = [...numbers, ...actions]
 buttons.forEach((bName) => {
 	let id = "button" + bName
 	let button = document.getElementById(id)
-	button.addEventListener('click',(e) => {
-	if (actions.includes(bName)) {
-		let lastValue = input.value[input.value.length - 1]
-		if (numbers.includes(lastValue)) {
+	button.addEventListener("click", (e) => {
+		if (actions.includes(bName)) {
+			let lastValue = input.value[input.value.length - 1]
+			if (numbers.includes(lastValue)) {
+				input.value = input.value + button.innerText
+			}
+		} else {
 			input.value = input.value + button.innerText
 		}
-	} else {
-		input.value = input.value + button.innerText
-	}
+	})
 })
-}
 
 //both clear and equals will need their own event code for when user clicks
 //q4e - here we are not shouting into the void because the input.value will update the user's screen which is the goal

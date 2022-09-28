@@ -10,14 +10,14 @@ let buttons = [...numbers, ...actions]
 //----then will do an '.addEventListener' comparing if actions array includes each cycled element, then comparing if numbers
 //----array includes the cycled element. and then pushing the element if in numbers (prevents actions occuring in succession)
 //----bonus, figure out how to have it delete the last element if the last element is an 'action' (will make code non functional)
+
 buttons.forEach((bName) => {
 	let id = "button" + bName
 	let button = document.getElementById(id)
-	//when debugged the below line has button === 'b
 	button.addEventListener("click", (e) => {
 		if (actions.includes(bName)) {
-			let lastValue = input.value[input.value.lenght - 1]
-			if (numbers.includes(input.value[lastValue])) {
+			let lastValue = input.value[input.value.length - 1]
+			if (numbers.includes(lastValue)) {
 				input.value = input.value + button.innerText
 			}
 		} else {

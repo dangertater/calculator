@@ -28,30 +28,27 @@ postSliceRight = ""
 
 //takes string with multiple actions and creates simpler string with just one action
 let breakItDown = (unbrokenString) => {
-	let moreSimple = ""
-	let mostSimple = ""
+	let rightSide = ""
+	let leftSide = ""
 	let breakItDownActions = ""
 	//adds all actions of unbrokenString into a single string
 	for (let i = 0; i < unbrokenString.length; i++) {
 		if (actions.includes(unbrokenString[i])) {
-			breakItDownActions.slice(unbrokenString[i])
+			breakItDownActions = breakItDownActions + unbrokenString[i]
 		}
 	}
 	//takes unbrokenString and isolates it's first 'equation' into it's own string called
-	//----'mostSimple', and the remainder of unbrokenString will be 'moreSimple'
+	//----'leftSide', and the remainder of unbrokenString will be 'rightSide'
 	for (let i = 0; i < breakItDownActions.length - 1; i++) {
-		for (let i = 0; i < unbrokenString.length; i++) {
-			if (breakItDownActions.length - 1 === unbrokenString[i]) {
-				mostSimple =
-					unbrokenString[i] + unbrokenString[i - 1] + unbrokenString[i - 2]
-				moreSimple =
+		let act = breakItDownActions[i]
+		for (let j = 0; j < unbrokenString.length; j++) {
+			if (act === unbrokenString[j]) {
+				leftSide =
+					unbrokenString[j] + unbrokenString[j - 1] + unbrokenString[j - 2]
+				rightSide =
 					unbrokenString -
-					(unbrokenString[i], unbrokenString[i - 1], unbrokenString[i - 2])
+					(unbrokenString[j], unbrokenString[j - 1], unbrokenString[j - 2])
 			}
-			//plugs in mostSimple and should not initiate breakItDown(),
-			//----then puts moreSimple which may re-initiate 'breakItDown()'
-			calculate(mostSimple)
-			calculate(moreSimple)
 		}
 	}
 }

@@ -35,8 +35,8 @@ QUnit.module("calculate", function () {
 		})
 	})
 	//gonna fuck it up.
-	QUnit.test("5*7+3", function (assert) {
-		assert.deepEqual(calculate("5*7+3"), {
+	QUnit.test("5*7+3+5+5+5", function (assert) {
+		assert.deepEqual(calculate("5*7+3+5+5+5"), {
 			leftSide: {
 				leftSide: "5",
 				rightSide: "7",

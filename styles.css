@@ -38,7 +38,7 @@ add button addding class to all of those columns */
 	display: flex;
 	flex-direction: column;
 	flex-basis: 100%;
-	flex: 3;
+	flex: 1;
 }
 
 .doubleColumn {
@@ -51,99 +51,3 @@ add button addding class to all of those columns */
 .buttonAll{
 	margin-left: 5px;
 }
-/* 
-.buttonDivide {
-	margin-left: 5px;
-}
-.buttonMultiply {
-	margin-left: 5px;
-}
-.buttonAdd {
-	margin-left: 5px;
-}
-.buttonSubtract {
-	margin-left: 5px;
-}
-.buttonEquals {
-	margin-left: 5px;
-}
-.buttonDot {
-	margin-left: 5px;
-}
-.buttonClear {
-	margin-left: 5px;
-}
-.button0 {
-	margin-left: 5px;
-}
-.button1 {
-	margin-left: 5px;
-}
-.button2 {
-	margin-left: 5px;
-}
-.button3 {
-	margin-left: 5px;
-}
-.button4 {
-	margin-left: 5px;
-}
-.button5 {
-	margin-left: 5px;
-}
-.button6 {
-	margin-left: 5px;
-}
-.button7 {
-	margin-left: 5px;
-}
-.button8 {
-	margin-left: 5px;
-}
-.button9 {
-	margin-left: 5px;
-} */
-
-/* .row1{
-
-}
-
-.row2 .row3 .row4 {
-margin-left: 5px;}
-
-.row5 {
-
-} */
-/* sets display of all buttons
-.displayBox {
-    max-width: 414px;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.buttonClear {
-    flex: 3;
-    width: 100%;
-    border: 1px solid black;
-    text-align: center;
-    vertical-align: center;
-}
-
-.buttonZero {
-    flex: 2;
-    border: 1px solid black;
-    text-align: center;
-    vertical-align: center
-} */
-
-/* sets display of the uniform buttons */
-/* .button {
-    display: inline-block;
-    flex: 0;
-    height: 64px;
-    min-width:calc(414px / 4);
-    padding: 16px;
-    border: 1px solid black;
-    text-align: center;
-    align-items: center;
-} */

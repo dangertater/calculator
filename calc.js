@@ -44,14 +44,12 @@ let breakItDown = (unbrokenString) => {
 		for (let j = 0; j < unbrokenString.length; j++) {
 			if (act === unbrokenString[j]) {
 				leftSide =
-					unbrokenString[j] + unbrokenString[j - 1] + unbrokenString[j - 2]
-				rightSide =
-					unbrokenString -
-					(unbrokenString[j], unbrokenString[j - 1], unbrokenString[j - 2])
+					unbrokenString[j - 1] + unbrokenString[j] + unbrokenString[j + 1]
 			}
 		}
 	}
 }
+
 window.hasOpertors = hasOpertors
 //seperates the sections of a string into different strings
 let calculate = (string) => {
@@ -65,7 +63,7 @@ let calculate = (string) => {
 		}
 	}
 	if (mulitpleActions.length > 1) {
-		breakItDown(string)
+		return breakItDown(string)
 	}
 	for (let i = 0; i < string.length; i++) {
 		if (actions.includes(string[i])) {

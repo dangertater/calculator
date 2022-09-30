@@ -34,9 +34,8 @@ QUnit.module("calculate", function () {
 			action: "/",
 		})
 	})
-	//gonna fuck it up.
-	QUnit.test("5*7+3+5+5+5", function (assert) {
-		assert.deepEqual(calculate("5*7+3+5+5+5"), {
+	QUnit.test("5*7+3", function (assert) {
+		assert.deepEqual(calculate("5*7+3"), {
 			leftSide: {
 				leftSide: "5",
 				rightSide: "7",
@@ -61,3 +60,39 @@ QUnit.module("hasOperators", function () {
 		assert.true(hasOperators("3^3"))
 	})
 })
+
+QUnit.module("sliceBoi", () => {
+	QUnit.test("3+7", (assert) => {
+		assert.equal(sliceBoi("3+7"), 1)
+	})
+	QUnit.test("7-3", (assert) => {
+		assert.equal(sliceBoi("7-3"), 1)
+	})
+	QUnit.test("7*5", (assert) => {
+		assert.equal(sliceBoi("7*5"), 1)
+	})
+	QUnit.test("15*3", (assert) => {
+		assert.equal(sliceBoi("15*3"), 2)
+	})
+	QUnit.test("15/3", (assert) => {
+		assert.equal(sliceBoi("15/3"), 2)
+	})
+	QUnit.test("3^3", (assert) => {
+		assert.equal(sliceBoi("3^3"), 1)
+	})
+	QUnit.test("3+7/2", (assert) => {
+		assert.equal(sliceBoi("3+7/2"), 3)
+	})
+	QUnit.test("3+7/2^2", (assert) => {
+		assert.equal(sliceBoi("3+7/2^2"), 5)
+	})
+	QUnit.test("3+7/2^2*4+3-2", (assert) => {
+		assert.equal(sliceBoi("3+7/2^2*4+3-2"), 5)
+	})
+})
+
+// function equal(r1, r2) {
+// 	if (r1 !== r2) {
+// 		throw new Error("fuck you buddy")
+// 	}
+// }

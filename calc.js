@@ -19,14 +19,14 @@
 //----special cases if no operators (will happen on last digit probs), return the string aka just numbers
 let nums1 = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 let powers = ["^"]
-let multDivide = ["*", "/"]
+let multiplyDivide = ["*", "/"]
 let addSubtract = ["+", "-"]
 let hasOperators = (string) => {
 	for (let i = 0; i < string.length; i++) {
 		if (powers.includes(string[i])) {
 			return true
 		}
-		if (multDivide.includes(string[i])) {
+		if (multiplyDivide.includes(string[i])) {
 			return true
 		}
 		if (addSubtract.includes(string[i])) {
@@ -35,22 +35,50 @@ let hasOperators = (string) => {
 	}
 	return false
 }
-
 window.hasOperators = hasOperators
+
+//return the indexOf the highest order operator, (then use .slice). this should
+//----return a number
+//pseudocode - we have index of, indexOf returns -1 if it doesn't find substring being looked for
+//----otherwise returns the index (element number) of substrings number
+//----find the operators in order of operation sequence
+let sliceBoi = (string) => {
+	for (let i = 0; i < powers.length; i++) {
+		let powersResult = string.indexOf(powers[i])
+		if (powersResult !== -1) return powersResult
+	}
+	for (let i = 0; i < multiplyDivide.length; i++) {
+		let multiplyDivideResult = string.indexOf(multiplyDivide[i])
+		if (multiplyDivideResult !== -1) return multiplyDivideResult
+	}
+	for (let i = 0; i < addSubtract.length; i++) {
+		let addSubtractResult = string.indexOf(addSubtract[i])
+		if (addSubtractResult !== -1) return addSubtractResult
+	}
+	// -1 below to simulate index of (will fail test)
+	return -1
+}
+window.sliceBoi = sliceBoi
 //seperates the sections of a string into different strings
 let calculate = (string) => {
+	//basecases =
+	//1 - there are no operators, return string
+	if (!hasOperators(string)) {
+		return string
+	}
+	//2 - string is empty, could throw error, other people are dicks
+	if (string === "") {
+		throw new Error("heck, string empty")
+	}
 	let leftSide = ""
 	let rightSide = ""
+	//TODO clean up by makin 'action' into operator, will need to update test.js
 	let action = ""
-	for (let i = 0; i < string.length; i++) {
-		if (hasOperators(string[i])) {
-			action = string[i]
-		} else if (action.length === 0) {
-			leftSide = leftSide + string[i]
-		} else {
-			rightSide = rightSide + string[i]
-		}
-	}
+	// create new function that will find the correct place to slice
+	//----find index of operator (action here), slice based on that.
+	let operatorIndex = sliceBoi(string)
+	action = string[operatorIndex]
+
 	return {
 		leftSide,
 		rightSide,
@@ -83,4 +111,13 @@ window.calculate = calculate
 // 			}
 // 		}
 // 	}
+// }
+
+//----worked when we didn't have more than one operator or sucsessive digit in the string
+// if (hasOperators(string[i])) {
+// 	action = string[i]
+// } else if (action.length === 0) {
+// 	leftSide = calculate(string[i])
+// } else {
+// 	rightSide = rightSide + string[i]
 // }

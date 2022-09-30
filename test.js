@@ -52,9 +52,12 @@ QUnit.module("calculate", function () {
 })
 QUnit.module("hasOperators", function () {
 	QUnit.test("3", function (assert) {
-		assert.false(hasOpertors("3"))
+		assert.false(hasOperators("3"))
 	})
 	QUnit.test("3+5", function (assert) {
-		assert.true(hasOpertors("3+5"))
+		assert.true(hasOperators("3+5"))
+	})
+	QUnit.test("3^3", (assert) => {
+		assert.true(hasOperators("3^3"))
 	})
 })

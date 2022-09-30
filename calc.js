@@ -18,56 +18,33 @@
 //----then take left string and right string and set those to calculate function recursively
 //----special cases if no operators (will happen on last digit probs), return the string aka just numbers
 let nums1 = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
-let actions = ["+", "-", "*", "/", "^"]
-let hasOpertors = (string) => {
-	if (string.includes(actions)) return true
-}
-
-postSliceLeft = ""
-postSliceRight = ""
-
-//takes string with multiple actions and creates simpler string with just one action
-let breakItDown = (unbrokenString) => {
-	let rightSide = ""
-	let leftSide = ""
-	let breakItDownActions = ""
-	//adds all actions of unbrokenString into a single string
-	for (let i = 0; i < unbrokenString.length; i++) {
-		if (actions.includes(unbrokenString[i])) {
-			breakItDownActions = breakItDownActions + unbrokenString[i]
+let powers = ["^"]
+let multDivide = ["*", "/"]
+let addSubtract = ["+", "-"]
+let hasOperators = (string) => {
+	for (let i = 0; i < string.length; i++) {
+		if (powers.includes(string[i])) {
+			return true
+		}
+		if (multDivide.includes(string[i])) {
+			return true
+		}
+		if (addSubtract.includes(string[i])) {
+			return true
 		}
 	}
-	//takes unbrokenString and isolates it's first 'equation' into it's own string called
-	//----'leftSide', and the remainder of unbrokenString will be 'rightSide'
-	for (let i = 0; i < breakItDownActions.length - 1; i++) {
-		let act = breakItDownActions[i]
-		for (let j = 0; j < unbrokenString.length; j++) {
-			if (act === unbrokenString[j]) {
-				leftSide =
-					unbrokenString[j - 1] + unbrokenString[j] + unbrokenString[j + 1]
-			}
-		}
-	}
+	return false
 }
 
-window.hasOpertors = hasOpertors
+window.hasOperators = hasOperators
 //seperates the sections of a string into different strings
 let calculate = (string) => {
 	let leftSide = ""
 	let rightSide = ""
 	let action = ""
-	let mulitpleActions = ""
 	for (let i = 0; i < string.length; i++) {
-		if (actions.includes(string[i])) {
-			mulitpleActions = mulitpleActions + string[i]
-		}
-	}
-	if (mulitpleActions.length > 1) {
-		return breakItDown(string)
-	}
-	for (let i = 0; i < string.length; i++) {
-		if (actions.includes(string[i])) {
-			action = action + string[i]
+		if (hasOperators(string[i])) {
+			action = string[i]
 		} else if (action.length === 0) {
 			leftSide = leftSide + string[i]
 		} else {
@@ -82,3 +59,28 @@ let calculate = (string) => {
 }
 
 window.calculate = calculate
+
+//----bullshit from going down a rabbit hole----
+// //takes string with multiple actions and creates simpler string with just one action
+// let breakItDown = (unbrokenString) => {
+// 	let rightSide = ""
+// 	let leftSide = ""
+// 	let breakItDownActions = ""
+// 	//adds all actions of unbrokenString into a single string
+// 	for (let i = 0; i < unbrokenString.length; i++) {
+// 		if (actions.includes(unbrokenString[i])) {
+// 			breakItDownActions = breakItDownActions + unbrokenString[i]
+// 		}
+// 	}
+// 	//takes unbrokenString and isolates it's first 'equation' into it's own string called
+// 	//----'leftSide', and the remainder of unbrokenString will be 'rightSide'
+// 	for (let i = 0; i < breakItDownActions.length - 1; i++) {
+// 		let act = breakItDownActions[i]
+// 		for (let j = 0; j < unbrokenString.length; j++) {
+// 			if (act === unbrokenString[j]) {
+// 				leftSide =
+// 					unbrokenString[j - 1] + unbrokenString[j] + unbrokenString[j + 1]
+// 			}
+// 		}
+// 	}
+// }

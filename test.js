@@ -36,17 +36,40 @@ QUnit.module("calculate", function () {
 	})
 	QUnit.test("5*7+3", function (assert) {
 		assert.deepEqual(calculate("5*7+3"), {
-			leftSide: {
-				leftSide: "5",
-				rightSide: "7",
-				action: "*",
-			},
-			rightSide: "3",
-			action: "+",
+			action: "*",
+			leftSide: "5",
+			rightSide: { action: "+", leftSide: "7", rightSide: "3" },
 		})
 	})
 	QUnit.test("3", function (assert) {
 		assert.deepEqual(calculate("3"), "3")
+	})
+	QUnit.test("3+7/2^2*4+3-2", (assert) => {
+		assert.deepEqual(calculate("3+7/2^2*4+3-2"), {
+			action: "^",
+			leftSide: {
+				action: "/",
+				leftSide: {
+					action: "+",
+					leftSide: "3",
+					rightSide: "7",
+				},
+				rightSide: "2",
+			},
+			rightSide: {
+				action: "*",
+				leftSide: "2",
+				rightSide: {
+					action: "+",
+					leftSide: "4",
+					rightSide: {
+						action: "-",
+						leftSide: "3",
+						rightSide: "2",
+					},
+				},
+			},
+		})
 	})
 })
 QUnit.module("hasOperators", function () {
@@ -63,31 +86,31 @@ QUnit.module("hasOperators", function () {
 
 QUnit.module("sliceBoi", () => {
 	QUnit.test("3+7", (assert) => {
-		assert.equal(sliceBoi("3+7"), 1)
+		assert.equal(operatorFinder("3+7"), 1)
 	})
 	QUnit.test("7-3", (assert) => {
-		assert.equal(sliceBoi("7-3"), 1)
+		assert.equal(operatorFinder("7-3"), 1)
 	})
 	QUnit.test("7*5", (assert) => {
-		assert.equal(sliceBoi("7*5"), 1)
+		assert.equal(operatorFinder("7*5"), 1)
 	})
 	QUnit.test("15*3", (assert) => {
-		assert.equal(sliceBoi("15*3"), 2)
+		assert.equal(operatorFinder("15*3"), 2)
 	})
 	QUnit.test("15/3", (assert) => {
-		assert.equal(sliceBoi("15/3"), 2)
+		assert.equal(operatorFinder("15/3"), 2)
 	})
 	QUnit.test("3^3", (assert) => {
-		assert.equal(sliceBoi("3^3"), 1)
+		assert.equal(operatorFinder("3^3"), 1)
 	})
 	QUnit.test("3+7/2", (assert) => {
-		assert.equal(sliceBoi("3+7/2"), 3)
+		assert.equal(operatorFinder("3+7/2"), 3)
 	})
 	QUnit.test("3+7/2^2", (assert) => {
-		assert.equal(sliceBoi("3+7/2^2"), 5)
+		assert.equal(operatorFinder("3+7/2^2"), 5)
 	})
 	QUnit.test("3+7/2^2*4+3-2", (assert) => {
-		assert.equal(sliceBoi("3+7/2^2*4+3-2"), 5)
+		assert.equal(operatorFinder("3+7/2^2*4+3-2"), 5)
 	})
 })
 

@@ -37,12 +37,11 @@ let hasOperators = (string) => {
 }
 window.hasOperators = hasOperators
 
-//return the indexOf the highest order operator, (then use .slice). this should
-//----return a number
+//return the indexOf the highest order operator
 //pseudocode - we have index of, indexOf returns -1 if it doesn't find substring being looked for
 //----otherwise returns the index (element number) of substrings number
 //----find the operators in order of operation sequence
-let sliceBoi = (string) => {
+let operatorFinder = (string) => {
 	for (let i = 0; i < powers.length; i++) {
 		let powersResult = string.indexOf(powers[i])
 		if (powersResult !== -1) return powersResult
@@ -58,7 +57,7 @@ let sliceBoi = (string) => {
 	// -1 below to simulate index of (will fail test)
 	return -1
 }
-window.sliceBoi = sliceBoi
+window.operatorFinder = operatorFinder
 //seperates the sections of a string into different strings
 let calculate = (string) => {
 	//basecases =
@@ -76,9 +75,15 @@ let calculate = (string) => {
 	let action = ""
 	// create new function that will find the correct place to slice
 	//----find index of operator (action here), slice based on that.
-	let operatorIndex = sliceBoi(string)
+	let operatorIndex = operatorFinder(string)
 	action = string[operatorIndex]
-
+	//1. use slice to grab everything left of operator index (multiple digit numbers too)
+	//2. use slice to grab all right of operator and put on 'right side
+	//3. put both left and right side back into calculate recursivly
+	leftSide = string.slice(0, operatorIndex)
+	rightSide = string.slice(operatorIndex + 1)
+	rightSide = calculate(rightSide)
+	leftSide = calculate(leftSide)
 	return {
 		leftSide,
 		rightSide,

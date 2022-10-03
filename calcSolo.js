@@ -1,47 +1,79 @@
 /*************************************************
  *  Part 2, evaluate our own calculation string
  *************************************************/
-// Create a function, that accepts a string, which is a valid thing to calculate
-// EG '11+15'
+//q4e = question for eric
+//TODO = solo(ish) biz
+//elDevSenior = eric
+//0. make appropriate comments so you don't get donked up
+//1. make a fucntion that will seperate out left side, right side, and operators named 'leftRightSeperatorSolo'
+//2. make function 'numberCruncher that will call 'leftRightSeperatorSolo' when a string has more than one
+//----operator, when string only has one operator it should crunch them numbers, return the number to an array
 
 //goal equation to be reduced '7+3*5^2+3/2-5'
 let numsSolo = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 let powersSolo = ["^"]
 let multiplyDivideSolo = ["*", "/"]
 let addSubtractSolo = ["+", "-"]
-let leftSideSolo = []
-let rightSideSolo = []
-let operatorsSolo = []
+let allOperatorsSolo = [...powersSolo, multiplyDivideSolo, addSubtractSolo]
 
-//TODO after it's all legit, get 'leftSideSolo, rightSideSolo, and operatorsSolo, out of the global array
-//------because of memory problems, do it or explain why it can't happen to elDevSenior
+//Will return the indexOf for a string's operator position
+let operatorFinderSolo = (stringSolo) => {
+	for (let i = 0; i < powersSolo.length; i++) {
+		let powersResultSolo = stringSolo.indexOf(powersSolo[i])
+		if (powersResultSolo != -1) {
+			return powersResultSolo
+		}
+	}
+	for (let i = 0; i < multiplyDivideSolo.length; i++) {
+		let multiplyDivideResultSolo = stringSolo.indexOf(multiplyDivideSolo[i])
+		if (multiplyDivideResultSolo != -1) {
+			return multiplyDivideResultSolo
+		}
+	}
+	for (let i = 0; i < multiplyDivideSolo.length; i++) {
+		let addsubtractResultSolo = stringSolo.indexOf(addSubtractSolo[i])
+		if (addsubtractResultSolo != -1) {
+			return addsubtractResultSolo
+		}
+	}
+	return -1
+}
 
-//seperates string into the different arrays
-let leftRightSeperatorSolo = (stringSolo) => {
+//
+let hasOperatorSolo = (stringSolo) => {
 	for (let i = 0; i < stringSolo.length; i++) {
-		if (stringSolo[i] === "^") {
-			rightSideSolo = rightSideSolo + stringSolo.slice(stringSolo[i + 1])
-			leftSideSolo =
-				leftSideSolo + stringSolo.slice(stringSolo[0], stringSolo[i - 1])
-			operatorsSolo =
-				operatorsSolo + stringSolo.slice(stringSolo[i], stringSolo[i + 1])
-		}
-		if (stringSolo[i] === "*" || stringSolo[i] === "/") {
-			rightSideSolo = rightSideSolo + stringSolo.slice(stringSolo[i])
-			leftSideSolo =
-				leftSideSolo + stringSolo.slice(stringSolo[0], stringSolo[i - 1])
-			operatorsSolo =
-				operatorSolo + stringSolo.slice(stringSolo[i], stringSolo[i + 1])
-		}
-		if (stringSolo[i] === "+" || stringSolo[i] === "-") {
-			rightSideSolo = rightSideSolo + stringSolo.slice(stringSolo[i])
-			leftSideSolo =
-				leftSideSolo + stringSolo.slice(stringSolo[0], stringSolo[i - 1])
-			operatorsSolo = operatorsSolo + stringSolo.slice(stringSolo[i + 1])
-		}
+		if (allOperatorsSolo.includes(stringSolo[i])) {
+			return true
+		} else return false
 	}
 }
 
+let calculateSolo = (stringSolo) => {
+	let leftSideSolo = ""
+	let rightSideSolo = ""
+	let operatorSolo = ""
+    if (hasOperatorSolo(stringSolo) = false) {
+        return stringSolo
+    }
+    if (stringSolo === '') {
+        throw new Error('string empty')
+    }
+    //return the string as an object w leftside rightside and operator
+    let operatorIndexSolo = operatorFinderSolo(stringSolo)
+    operatorSolo = stringSolo[operatorIndexSolo]
+    leftSideSolo = stringSolo.slice(0,operatorIndexSolo)
+    rightSideSolo = stringSolo.slice(operatorIndexSolo +1, stringSolo.length)
+    leftSideSolo = calculateSolo(leftSideSolo)
+    rightSideSolo = calculateSolo(rightSideSolo)
+    leftSideSolo = calculateSolo(leftSideSolo)
+    rightSideSolo = calculateSolo(rightSideSolo)
+    return {
+        leftSideSolo,
+        rightSideSolo,
+        operatorSolo,
+    }
+
+}
 // for each character, add it to the left side, as long as we haven't found an action
 // if we have found an action, add it to the right side
 // Loop through each character of the string

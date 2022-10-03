@@ -77,17 +77,14 @@ let calculate = (string) => {
 	//----find index of operator (action here), slice based on that.
 	let operatorIndex = operatorFinder(string)
 	action = string[operatorIndex]
-	//1. use slice to grab everything left of operator index (multiple digit numbers too)
-	//2. use slice to grab all right of operator and put on 'right side
-	//3. put both left and right side back into calculate recursivly
 	leftSide = string.slice(0, operatorIndex)
 	rightSide = string.slice(operatorIndex + 1)
-	rightSide = calculate(rightSide)
 	leftSide = calculate(leftSide)
+	rightSide = calculate(rightSide)
 	return {
-		leftSide,
-		rightSide,
-		action,
+		leftSide: leftSide,
+		rightSide: rightSide,
+		action: action,
 	}
 }
 

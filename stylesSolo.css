@@ -1,0 +1,53 @@
+* {
+	background-color: aqua;
+	border-radius: 3em;
+}
+
+.fullpage {
+	max-width: 414px;
+	margin: 5px;
+}
+.row {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%;
+	margin-top: 5px;
+}
+
+.inputBox {
+	box-sizing: border-box;
+	width: 100%;
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 100%;
+	flex: 1;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+/* instead of padding on all columns, make a new class called button padding and fuckzorz with that.
+add button addding class to all of those columns */
+
+.tripleColumn {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 100%;
+	flex: 3;
+}
+
+.doubleColumn {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 100%;
+	flex: 2;
+}
+
+.buttonAll{
+	margin-left: 5px;
+}

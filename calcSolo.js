@@ -4,6 +4,7 @@
 // Create a function, that accepts a string, which is a valid thing to calculate
 // EG '11+15'
 
+//goal equation to be reduced '7+3*5^2+3/2-5'
 let numsSolo = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 let powersSolo = ["^"]
 let multiplyDivideSolo = ["*", "/"]
@@ -12,11 +13,33 @@ let leftSideSolo = []
 let rightSideSolo = []
 let operatorsSolo = []
 
-let calculateSolo = (stringSolo) => {
-	let leftSideSolo = []
-	let rightSideSolo = []
-	let operatorsSolo = []
-	for (let i = 0; i < stringSolo.length; i++) {}
+//TODO after it's all legit, get 'leftSideSolo, rightSideSolo, and operatorsSolo, out of the global array
+//------because of memory problems, do it or explain why it can't happen to elDevSenior
+
+//seperates string into the different arrays
+let leftRightSeperatorSolo = (stringSolo) => {
+	for (let i = 0; i < stringSolo.length; i++) {
+		if (stringSolo[i] === "^") {
+			rightSideSolo = rightSideSolo + stringSolo.slice(stringSolo[i + 1])
+			leftSideSolo =
+				leftSideSolo + stringSolo.slice(stringSolo[0], stringSolo[i - 1])
+			operatorsSolo =
+				operatorsSolo + stringSolo.slice(stringSolo[i], stringSolo[i + 1])
+		}
+		if (stringSolo[i] === "*" || stringSolo[i] === "/") {
+			rightSideSolo = rightSideSolo + stringSolo.slice(stringSolo[i])
+			leftSideSolo =
+				leftSideSolo + stringSolo.slice(stringSolo[0], stringSolo[i - 1])
+			operatorsSolo =
+				operatorSolo + stringSolo.slice(stringSolo[i], stringSolo[i + 1])
+		}
+		if (stringSolo[i] === "+" || stringSolo[i] === "-") {
+			rightSideSolo = rightSideSolo + stringSolo.slice(stringSolo[i])
+			leftSideSolo =
+				leftSideSolo + stringSolo.slice(stringSolo[0], stringSolo[i - 1])
+			operatorsSolo = operatorsSolo + stringSolo.slice(stringSolo[i + 1])
+		}
+	}
 }
 
 // for each character, add it to the left side, as long as we haven't found an action

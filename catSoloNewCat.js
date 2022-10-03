@@ -9,30 +9,32 @@ let leftRightSeperatorSolo = (stringSolo) => {
 	let leftSideSolo = ""
 	let rightSideSolo = ""
 	let operatorsSolo = ""
+	// for (let i = 0; i < stringSolo.length; i++) {
+	// 	for (let i = 0; i < stringSolo.length; i++) {
+	// 		if (stringSolo[i] === "^") {
+	// 			rightSideSolo = stringSolo.slice()
+	// 			leftSideSolo = stringSolo.slice()
+	// 			operatorsSolo = stringSolo.slice()
+	// 			return { leftSideSolo, rightSideSolo, operatorsSolo }
+	// 		}
+	// 	}
+	// 	for (let i = 0; i < stringSolo.length; i++) {
+	// 		if (stringSolo[i] === "*" || stringSolo[i] === "/") {
+	// 			rightSideSolo = stringSolo.slice()
+	// 			leftSideSolo = stringSolo.slice()
+	// 			operatorsSolo = stringSolo.slice()
+	// 			return { leftSideSolo, rightSideSolo, operatorsSolo }
+	// 		}
+	// 	}
 	for (let i = 0; i < stringSolo.length; i++) {
-		for (let i = 0; i < stringSolo.length; i++) {
-			if (stringSolo[i] === "+" || stringSolo[i] === "-") {
-				rightSideSolo = stringSolo.slice(stringSolo[i])
-				leftSideSolo = stringSolo.slice(stringSolo[0], stringSolo[i - 1])
-				operatorsSolo = stringSolo.slice(stringSolo[0], stringSolo[i + 1])
-				return { leftSideSolo, rightSideSolo, operatorsSolo }
-			}
-		}
-		for (let i = 0; i < stringSolo.length; i++) {
-			if (stringSolo[i] === "+" || stringSolo[i] === "-") {
-				rightSideSolo = stringSolo.slice(stringSolo[i])
-				leftSideSolo = stringSolo.slice(stringSolo[0], stringSolo[i - 1])
-				operatorsSolo = stringSolo.slice(stringSolo[0], stringSolo[i + 1])
-				return { leftSideSolo, rightSideSolo, operatorsSolo }
-			}
-		}
-		for (let i = 0; i < stringSolo.length; i++) {
-			if (stringSolo[i] === "+" || stringSolo[i] === "-") {
-				rightSideSolo = stringSolo.slice(stringSolo[i])
-				leftSideSolo = stringSolo.slice(stringSolo[0], stringSolo[i - 1])
-				operatorsSolo = stringSolo.slice(stringSolo[0], stringSolo[i + 1])
-				return { leftSideSolo, rightSideSolo, operatorsSolo }
-			}
+		if (stringSolo[i] === "+" || stringSolo[i] === "-") {
+			operatorsSolo = stringSolo.slice(i, i + 1)
+			rightSideSolo = stringSolo.slice(i + 1)
+			leftSideSolo = stringSolo.slice(0, i)
+			return { leftSideSolo, rightSideSolo, operatorsSolo }
 		}
 	}
 }
+// }
+
+// leftRightSeperatorSolo('2+4+6+8')

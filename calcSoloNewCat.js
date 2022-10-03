@@ -34,7 +34,16 @@ let leftRightSeperatorSolo = (stringSolo) => {
 	if (stringSolo === "") {
 		throw new Error("you fucked it up no string")
 	}
-
+	for (let i = 0; i < stringSolo.length; i++) {
+		if (stringSolo[i] === "+" || stringSolo[i] === "-") {
+			return sliceAndRedo(stringSolo, i)
+		}
+	}
+	for (let i = 0; i < stringSolo.length; i++) {
+		if (stringSolo[i] === "*" || stringSolo[i] === "/") {
+			return sliceAndRedo(stringSolo, i)
+		}
+	}
 	for (let i = 0; i < stringSolo.length; i++) {
 		if (stringSolo[i] === "^") {
 			return sliceAndRedo(stringSolo, i)
@@ -51,19 +60,9 @@ let leftRightSeperatorSolo = (stringSolo) => {
 			// return obj
 		}
 	}
-	for (let i = 0; i < stringSolo.length; i++) {
-		if (stringSolo[i] === "*" || stringSolo[i] === "/") {
-			return sliceAndRedo(stringSolo, i)
-		}
-	}
-	for (let i = 0; i < stringSolo.length; i++) {
-		if (stringSolo[i] === "+" || stringSolo[i] === "-") {
-			return sliceAndRedo(stringSolo, i)
-		}
-	}
 }
 
-//goal, take the objects reverse engineer to a single number (solution), dont forget order of operations
+//goal, take the objects reverse engineer to a single number (solution)
 
 // }
 // leftRightSeperatorSolo('2+4+6+8')

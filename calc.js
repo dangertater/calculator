@@ -91,6 +91,9 @@ let calculate = (string) => {
 	}
 }
 
+//can keep left right and action, or perform calculation and return the number
+//or recursivly loop through our key value pairs doing the math as you go
+
 window.calculate = calculate
 
 //----bullshit from going down a rabbit hole----

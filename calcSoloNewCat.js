@@ -72,10 +72,11 @@ let numberCruncher = (parsedSolo) => {
 	if (op === "+") return left + right
 	if (op === "-") return left - right
 }
+window.numberCruncher = numberCruncher
 
 //goal, take the objects reverse engineer to a single number (solution)
 
 // }
 // leftRightSeperatorSolo('2+4+6+8')
 // leftRightSeperatorSolo('2+4/6^8')
-// leftRightSeperatorSolo('2+4/6^8+4')
+// leftRightSeperatorSolo('2+4/6^8-4')

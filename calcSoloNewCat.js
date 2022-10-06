@@ -8,12 +8,14 @@ let allOperatorsSolo = [
 	...addSubtractSolo,
 ]
 
+//determines if string has an operator
 let hasOperatorSolo = (leString) => {
 	for (let i = 0; i < leString.length; i++) {
 		if (allOperatorsSolo.includes(leString[i]) === true) return true
 	}
 }
-let sliceAndRedo = (stringSolo, i) => {
+//
+let sliceAndRedoSolo = (stringSolo, i) => {
 	let operatorsSolo = stringSolo.slice(i, i + 1)
 	let leftSideSolo = stringSolo.slice(0, i)
 	let rightSideSolo = stringSolo.slice(i + 1)
@@ -22,7 +24,6 @@ let sliceAndRedo = (stringSolo, i) => {
 	let obj = { leftSideSolo, rightSideSolo, operatorsSolo }
 	return obj
 }
-// let numberCruncher = (stringSolo) => {}
 // seperates string into the left right and operator strings, puts them in object.
 //determines if left side or right side has operators, then
 let leftRightSeperatorSolo = (stringSolo) => {
@@ -36,17 +37,17 @@ let leftRightSeperatorSolo = (stringSolo) => {
 	}
 	for (let i = 0; i < stringSolo.length; i++) {
 		if (stringSolo[i] === "+" || stringSolo[i] === "-") {
-			return sliceAndRedo(stringSolo, i)
+			return sliceAndRedoSolo(stringSolo, i)
 		}
 	}
 	for (let i = 0; i < stringSolo.length; i++) {
 		if (stringSolo[i] === "*" || stringSolo[i] === "/") {
-			return sliceAndRedo(stringSolo, i)
+			return sliceAndRedoSolo(stringSolo, i)
 		}
 	}
 	for (let i = 0; i < stringSolo.length; i++) {
 		if (stringSolo[i] === "^") {
-			return sliceAndRedo(stringSolo, i)
+			return sliceAndRedoSolo(stringSolo, i)
 			// let operatorsSolo = stringSolo.slice(i, i + 1)
 			// let leftSideSolo = stringSolo.slice(0, i)
 			// let rightSideSolo = stringSolo.slice(i + 1)
@@ -60,6 +61,18 @@ let leftRightSeperatorSolo = (stringSolo) => {
 			// return obj
 		}
 	}
+}
+
+// numberCruncher will be a recursive function, taking parsed object from leftRightSeperatorSolo(),
+//----recursivly resolve left and right with the operator
+let numberCruncher = (parsedSolo) => {
+	//basecase1
+	const twelve = Number("12")
+
+	// For each side: if the side is a string, turn it into a number using Number()
+	// if it's an object, turn it into a number using numberCruncher()
+	// Once both sides are numbers, perform the operation indicated
+	// return the answer
 }
 
 //goal, take the objects reverse engineer to a single number (solution)

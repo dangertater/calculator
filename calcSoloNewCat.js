@@ -51,19 +51,11 @@ let leftRightSeperatorSolo = (stringSolo) => {
 		}
 	}
 }
-
-let isThisAnObject = (testItem) => {}
-let soloNumNameGen = (numString) => {
-	let generatedNum = Number(numString)
-	return generatedNum
-}
 // numberCruncher will be a recursive function, taking parsed object from leftRightSeperatorSolo(),
 //----recursivly resolve left and right with the operator
 let numberCruncher = (parsedSolo) => {
-	//basecase1
-	if (!hasOperatorSolo(parsedSolo)) {
-		return soloNumNameGen(parsedSolo)
-	}
+	// baseCase1
+	if (typeof parsedSolo === "string") return Number(parsedSolo)
 	//q4e i don't beleive the below line of code is necessary anymore?
 	// if (typeof parsedSolo === "object") {}
 	// left is going to be an object, or a string
@@ -71,19 +63,14 @@ let numberCruncher = (parsedSolo) => {
 	// if left/right is an object, turn it into a number using number cruncher
 	// now both right and left are numbers,
 	// do the operation specified and return it.
-	const left = parsedSolo.leftSideSolo
-	const right = parsedSolo.rightSideSolo
+	const left = numberCruncher(parsedSolo.leftSideSolo)
+	const right = numberCruncher(parsedSolo.rightSideSolo)
 	const op = parsedSolo.operatorsSolo
 	if (op === "^") return Math.pow(left, right)
 	if (op === "*") return left * right
 	if (op === "/") return left / right
 	if (op === "+") return left + right
 	if (op === "-") return left - right
-
-	// For each side: if the side is a string, turn it into a number using Number()
-	// if it's an object, turn it into a number using numberCruncher()
-	// Once both sides are numbers, perform the operation indicated
-	// return the answer
 }
 
 //goal, take the objects reverse engineer to a single number (solution)

@@ -48,26 +48,37 @@ let leftRightSeperatorSolo = (stringSolo) => {
 	for (let i = 0; i < stringSolo.length; i++) {
 		if (stringSolo[i] === "^") {
 			return sliceAndRedoSolo(stringSolo, i)
-			// let operatorsSolo = stringSolo.slice(i, i + 1)
-			// let leftSideSolo = stringSolo.slice(0, i)
-			// let rightSideSolo = stringSolo.slice(i + 1)
-			// //below few lines are functionally the same, left for gettin learnt.
-			// let rightSideSoloParsed = leftRightSeperatorSolo(rightSideSolo)
-			// let obj = {
-			// 	leftSideSolo: leftRightSeperatorSolo(leftSideSolo),
-			// 	rightSideSolo: rightSideSoloParsed,
-			// 	operatorsSolo,
-			// }
-			// return obj
 		}
 	}
 }
 
+let isThisAnObject = (testItem) => {}
+let soloNumNameGen = (numString) => {
+	let generatedNum = Number(numString)
+	return generatedNum
+}
 // numberCruncher will be a recursive function, taking parsed object from leftRightSeperatorSolo(),
 //----recursivly resolve left and right with the operator
 let numberCruncher = (parsedSolo) => {
 	//basecase1
-	const twelve = Number("12")
+	if (!hasOperatorSolo(parsedSolo)) {
+		return soloNumNameGen(parsedSolo)
+	}
+	//q4e i don't beleive the below line of code is necessary anymore?
+	// if (typeof parsedSolo === "object") {}
+	// left is going to be an object, or a string
+	// if left/right is a string, turn it into a number
+	// if left/right is an object, turn it into a number using number cruncher
+	// now both right and left are numbers,
+	// do the operation specified and return it.
+	const left = parsedSolo.leftSideSolo
+	const right = parsedSolo.rightSideSolo
+	const op = parsedSolo.operatorsSolo
+	if (op === "^") return Math.pow(left, right)
+	if (op === "*") return left * right
+	if (op === "/") return left / right
+	if (op === "+") return left + right
+	if (op === "-") return left - right
 
 	// For each side: if the side is a string, turn it into a number using Number()
 	// if it's an object, turn it into a number using numberCruncher()

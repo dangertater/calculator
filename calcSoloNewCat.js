@@ -80,3 +80,8 @@ window.numberCruncher = numberCruncher
 // leftRightSeperatorSolo('2+4+6+8')
 // leftRightSeperatorSolo('2+4/6^8')
 // leftRightSeperatorSolo('2+4/6^8-4')
+
+//1. review all the shit done this morning
+//2. connect calcSoloNewCat to indexSolo
+//3. use calcSoloNewCat functions to link with the calculator (functions in calcSolo.js)
+//4. goal will be all things passing in qunit and functioning on calculator webpage

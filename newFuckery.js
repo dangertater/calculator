@@ -4,19 +4,21 @@ let slice = (string, elementNumber) => {
 	let leftOf = ""
 	let rightOf = ""
 	let baseElement = string[elementNumber]
-	for (let i = 0; i < elementNumber; i++) {
-		leftOf = leftOf.concat(string[i])
-	}
-	for (let i = 0; i < string.length - elementNumber; i++) {
-		rightOf = rightOf.concat(string[i + elementNumber])
+	for (let i = 0; i < string.length; i++) {
+		if (i < elementNumber) {
+			leftOf = leftOf.concat(string[i])
+		} else {
+			rightOf = rightOf.concat(string[i])
+		}
 	}
 	console.log(
-		`left of element is ` +
+		`left of baseElement is ` +
 			leftOf +
 			`, baseElement is ` +
 			baseElement +
 			" and right of baseElement is " +
-			rightOf
+			rightOf +
+			"."
 	)
 }
 
